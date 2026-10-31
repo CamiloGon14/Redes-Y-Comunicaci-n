@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de administración de servidores dinámicos</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- 1. ENCABEZADO -->
+  <header class="encabezado">
+    <h1>Panel de administración de servidores dinámicos</h1>
+    <p>
+      Permite monitorear los servidores registrados en el balanceador, enviar solicitudes
+      que son distribuidas entre ellos y consultar cuántas atiende cada uno.
+    </p>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- 6. MENSAJES DEL SISTEMA -->
+    <section class="seccion" id="seccion-mensajes">
+      <h2>Mensajes del sistema</h2>
+      <div id="mensajes" class="mensajes" aria-live="polite">
+        <div class="mensaje info">Panel iniciado. Esperando datos de la API…</div>
+      </div>
+    </section>
+
+    <!-- 2. RESUMEN DEL SISTEMA -->
+    <section class="seccion" id="seccion-resumen">
+      <h2>Resumen del sistema</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <span class="tarjeta-titulo">Solicitudes atendidas</span>
+          <span class="tarjeta-valor" id="total-solicitudes">–</span>
+        </article>
+        <article class="tarjeta">
+          <span class="tarjeta-titulo">Servidores configurados</span>
+          <span class="tarjeta-valor" id="total-servidores">–</span>
+        </article>
+        <article class="tarjeta">
+          <span class="tarjeta-titulo">Servidores activos</span>
+          <span class="tarjeta-valor" id="total-activos">–</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. LISTADO DE SERVIDORES -->
+    <section class="seccion" id="seccion-servidores">
+      <div class="seccion-cabecera">
+        <h2>Listado de servidores</h2>
+        <button id="btn-actualizar" class="boton secundario">Actualizar información</button>
+      </div>
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th>Nombre</th><th>Puerto</th><th>Estado</th></tr>
+          </thead>
+          <tbody id="tabla-servidores">
+            <tr><td colspan="3" class="vacio">Sin datos todavía.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. GESTIÓN DE SOLICITUDES -->
+    <section class="seccion" id="seccion-solicitudes">
+      <h2>Gestión de solicitudes</h2>
+      <button id="btn-solicitar" class="boton primario">Enviar solicitud</button>
+      <div id="resultado-solicitud" class="resultado">
+        <p class="vacio">Aún no se ha enviado ninguna solicitud.</p>
+      </div>
+    </section>
+
+    <!-- 5. ESTADÍSTICAS -->
+    <section class="seccion" id="seccion-estadisticas">
+      <h2>Estadísticas</h2>
+      <p class="subtitulo">Solicitudes procesadas por cada servidor</p>
+      <div id="estadisticas" class="estadisticas">
+        <p class="vacio">Sin datos todavía.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">Taller Redes Masivas de Servidores · Universidad de Cundinamarca</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
